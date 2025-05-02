@@ -4,6 +4,7 @@ This space is where I document my journey through the course, sharing my progres
 
 ✅ About the Course
 CS50 is Harvard’s introduction to the intellectual enterprises of computer science and the art of programming.
+
 Topics include:
 
 Algorithms
@@ -18,7 +19,9 @@ Web Development
 
 Problem Solving
 
+
 🧠 What You'll Find Here
+
 Solutions to problem sets (psets)
 
 My notes and code experiments
