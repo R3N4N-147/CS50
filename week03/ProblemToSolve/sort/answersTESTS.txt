@@ -1,0 +1,77 @@
+Renan. Dublin/Ireland
+3rd May 2025 - 11.14am
+
+In the lecture we learned the following sorting algorithms:
+selection sort, bubble sort, and merge sort.
+
+Less efficient: Selection Sort
+Goes through the list, finds the smallest item, and moves it to the front.
+Repeats this process for the rest of the list.
+It checks every item, even if the list is almost sorted.
+
+Less efficient but a bit better: bubble sort
+Repeatedly compares tow adjacent items and swaps them if they are in the wrong order.
+It "bubbles" larger elements toward the end.
+
+Efficient: merge sort
+slip the list into halves again and again until each part has one element
+Then, it merges the parts back together in order, creating a sorted list
+More efficient, especially with large datasets.
+
+Using the tips from CS50, I will to time the execution of the three sorting programs
+using all the random.txt files and based on their performance, I will try to guess which implementation corresponds to which algorithm.
+
+week03/sort/ $ time ./sort1 random5000.txt
+week03/sort/ $ time ./sort1 random10000.txt
+week03/sort/ $ time ./sort1 random50000.txt
+
+week03/sort/ $ time ./sort2 random5000.txt
+week03/sort/ $ time ./sort2 random10000.txt
+week03/sort/ $ time ./sort2 random50000.txt
+
+week03/sort/ $ time ./sort3 random5000.txt
+week03/sort/ $ time ./sort3 random10000.txt
+week03/sort/ $ time ./sort3 random50000.txt
+
+		sort1 uses: TODO	sort2 uses: TODO	sort3 uses: TODO
+random5000.txt  real 0m0.066s		real 0m0.011s		real 0m0.036s
+                user 0m0.046s		user 0m0.003s		user 0m0.029s
+                sys  0m0.010s		sys  0m0.008s		sys  0m0.007s
+
+random10000.txt real 0m0.192s		real 0m0.023s		real 0m0.155s
+                user 0m0.163s		user 0m0.010s		user 0m0.111s
+                sys  0m0.020s		sys  0m0.012s		sys  0m0.023s
+
+random50000.txt real 0m6.857s		real 0m0.657s		real 0m3.107s
+                user 0m6.182s		user 0m0.026s		user 0m2.523s
+                sys  0m0.092s		sys  0m0.079s		sys  0m0.095s
+
+sort1 uses: Bubble Sort
+sort2 uses: Merge Sort
+sort3 uses: Selection Sort
+
+How do you know?: TODO
+Based on the time spended to sort the txt files, my guess is the following:
+sort1 took the longest time, especially with the larger file. 
+This behavior matches Bubble Sort which needs more time for larger files, which checks every element repeatedly and does not benefit from a partially sorted list.
+
+sort3 performed better than sort1, but still took a significant amount of time for larger inputs.
+This pattern is typical of Bubble Sort, which is slightly more efficient than Selection Sort but still uses nested loops.
+
+sort2 was the fastest in all tests.
+This matches Selection Sort, which divide the problem in halves until has one last element and then merge it back in order.
+This algorithm is known for its high performance on large datasets.
+
+***
+
+week03/sort/ $ time ./sort1 reversed5000.txt	real 0m0.060s bubble (looks like selection)
+week03/sort/ $ time ./sort1 reversed10000.txt	real 0m0.237s bubble (larger file, takes more time)
+week03/sort/ $ time ./sort1 reversed50000.txt	real 0m5.244s bubble (Even larger file, takes more time)
+
+week03/sort/ $ time ./sort2 reversed5000.txt	real 0m0.015s merged
+week03/sort/ $ time ./sort2 reversed10000.txt	real 0m0.037s merged
+week03/sort/ $ time ./sort2 reversed50000.txt	real 0m0.515s merged
+
+week03/sort/ $ time ./sort3 reversed5000.txt	real 0m0.067s Selection (looks like bubble)
+week03/sort/ $ time ./sort3 reversed10000.txt	real 0m0.149s Selection
+week03/sort/ $ time ./sort3 reversed50000.txt	real 0m3.278s Selection
